@@ -25,5 +25,5 @@ def evaluate(model, env, numiter):
     print("mean: ",avg)
     print("standard deviation:", std_dev)
     
-    return mean, std_dev
+    return avg, std_dev
 
