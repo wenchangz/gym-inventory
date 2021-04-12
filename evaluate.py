@@ -3,7 +3,7 @@ import numpy as np
 def evaluate(model, env, numiter):
     policy = model(env) ##model is taken as a function, and model returns a policy function
 
-    size = 2 #number of runs to calculate avg and std dev
+    size = 5 #number of runs to calculate avg and std dev
 
     avg_reward = np.zeros(size)
     
@@ -24,4 +24,6 @@ def evaluate(model, env, numiter):
 
     print("mean: ",avg)
     print("standard deviation:", std_dev)
+    
+    return mean, std_dev
 
