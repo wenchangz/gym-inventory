@@ -24,18 +24,18 @@ class Inventory(gym.Env):
         self.seed()
 
 
-    def _seed(self, seed=None):
+    def seed(self, seed=None):
         self.np_random, seed = gym.utils.seeding.np_random(seed)
         return [seed]
 
    
-    def _reset(self):
+    def reset(self):
         #self.state = np.asarray(self.starting_state)
         self.state = np.array([0]*(self.L+1)) 
         return self.state
     
     
-    def _step(self, action):
+    def step(self, action):
         assert self.action_space.contains(action)
         
         demand = np.random.binomial(self.D, 0.5)

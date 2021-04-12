@@ -1,0 +1,27 @@
+import numpy as np
+
+def evaluate(model, env, numiter):
+    policy = model(env) ##model is taken as a function, and model returns a policy function
+
+    size = 2 #number of runs to calculate avg and std dev
+
+    avg_reward = np.zeros(size)
+    
+    for i in range(size):
+        reward = np.zeros(numiter)
+        env.reset()
+
+
+        for j in range(numiter):
+            state_j = env.state
+            _,reward_j = env.step(policy(state_j))
+            reward[j] = reward_j
+        
+        avg_reward[i] = np.mean(reward)
+    
+    avg = np.mean(avg_reward)
+    std_dev = np.std(avg_reward)
+
+    print("mean: ",avg)
+    print("standard deviation:", std_dev)
+
