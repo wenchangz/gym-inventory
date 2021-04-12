@@ -38,20 +38,20 @@ class Inventory(gym.Env):
     def _step(self, action):
         assert self.action_space.contains(action)
         
-        demand = self.np.random.binomial(self.D, 0.5)
+        demand = np.random.binomial(self.D, 0.5)
         
         # update inventory
         self.state[0] = min(self.N, max(0, self.state[0] + self.state[1] - demand))
         #total inventory no more than N: this may lead to some problems with holding cost?
 
         # update pipeline vector x
-        for i in range(1,L):
+        for i in range(1,self.L):
             self.state[i] = self.state[i+1]
-        self.state[L] = action
+        self.state[self.L] = action
         
         # compute the reward
         loss = -min(0, self.state[0] + self.state[1] - demand)
-        reward = -h*self.state[0] - p*loss
+        reward = -self.h*self.state[0] - self.p*loss
 
         return self.state, reward
     
