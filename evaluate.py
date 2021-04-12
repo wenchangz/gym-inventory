@@ -3,7 +3,7 @@ import numpy as np
 def evaluate(model, env, numiter):
     policy = model(env) ##model is taken as a function, and model returns a policy function
 
-    size = 5 #number of runs to calculate avg and std dev
+    size = 20 #number of runs to calculate avg and std dev
 
     avg_reward = np.zeros(size)
     
