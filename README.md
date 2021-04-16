@@ -3,7 +3,7 @@
 
 **Due to rendering issues with Github, we have included this same content in the PDF we handed in on Gradescope. Please feel free to check out that file instead.**
 
-This document formally defines the lost-sales inventory optimization problem. In order to make it tractable, certain discretization measures were considered, making our model slightly different from the one introduced in \cite{XinGoldberg2016} and in Lecture 5 of our class.
+This document formally defines the lost-sales inventory optimization problem. In order to make it tractable, certain discretization measures were considered, making our model slightly different from the one introduced in Xin & Goldberg (2016) and in Lecture 5 of our class.
 
 #### Model Setup
 
