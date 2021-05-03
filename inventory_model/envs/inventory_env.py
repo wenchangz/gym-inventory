@@ -5,16 +5,23 @@ import sys
 class Inventory(gym.Env):
     metadata = {'render.modes': ['human']}
     
-    def __init__(self, config): 
+    #def __init__(self, config): 
+    def __init__(self): 
         
-        self.h = config['h'] # the holding cost
-        self.p = config['p'] # the penalty cost
-        self.L = config['L'] # leading time
-        self.N = config['max_inventory'] # maximum inventory
-        self.D = config['max_demand'] # maximum demand
+#         self.h = config['h'] # the holding cost
+#         self.p = config['p'] # the penalty cost
+#         self.L = config['L'] # leading time
+#         self.N = config['max_inventory'] # maximum inventory
+#         self.D = config['max_demand'] # maximum demand
         #self.starting_state = config['starting_state'] # set initial state
         
+        self.h = 1 # the holding cost
+        self.p = 2 # the penalty cost
+        self.L = 100 # leading time
+        self.N = 100 # maximum inventory
+        self.D = 6 # maximum demand
         
+
         self.action_space = gym.spaces.Discrete(self.N+1) # definition of the action space
         self.observation_space = gym.spaces.MultiDiscrete([self.N+1]*(self.L+1)) # definition of the state space
         
@@ -53,7 +60,7 @@ class Inventory(gym.Env):
         loss = -min(0, self.state[0] + self.state[1] - demand)
         reward = -self.h*self.state[0] - self.p*loss
 
-        return self.state, reward
+        return self.state, reward, False, {}
     
 #     def render(self , mode=’human’):
 #         outfile = sys.stdout if mode == ’human’ else super(Inventory , self).render(mode=mode)

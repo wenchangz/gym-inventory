@@ -5,14 +5,19 @@ import sys
 class ContInventory(gym.Env):
     metadata = {'render.modes': ['human']}
     
-    def __init__(self, config): 
+    #def __init__(self, config): 
+    def __init__(self): 
         
-        self.h = config['h'] # the holding cost
-        self.p = config['p'] # the penalty cost
-        self.L = config['L'] # leading time
-        self.lamb = config['lambda'] # demand rate
+#         self.h = config['h'] # the holding cost
+#         self.p = config['p'] # the penalty cost
+#         self.L = config['L'] # leading time
+#         self.lamb = config['lambda'] # demand rate
         #self.starting_state = config['starting_state'] # set initial state
         
+        self.h = 1 # the holding cost
+        self.p = 1 # the penalty cost
+        self.L = 100 # leading time
+        self.lamb = 1 # demand rate
         
         self.action_space = gym.spaces.Box(low=0, high=np.inf, shape=(1,1),dtype=np.float32) # definition of the action space
         self.observation_space = gym.spaces.Box(low=0, high=np.inf, shape=(self.L+1,1), dtype=np.float32) # definition of the state space
@@ -52,7 +57,7 @@ class ContInventory(gym.Env):
         loss = -min(0, self.state[0] + self.state[1] - demand)
         reward = -self.h*self.state[0] - self.p*loss
 
-        return self.state, reward
+        return self.state, reward, False, {}
     
 #     def render(self , mode=’human’):
 #         outfile = sys.stdout if mode == ’human’ else super(Inventory , self).render(mode=mode)
