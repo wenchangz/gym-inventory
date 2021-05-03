@@ -1,2 +1,3 @@
 from inventory_model.envs.inventory_env import Inventory
 from inventory_model.envs.inventory_cont_env import ContInventory
+from inventory_model.envs.inventory_cont_env_config import ContInventoryConfig

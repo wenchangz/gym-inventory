@@ -14,7 +14,7 @@ def evaluate(model, env, numiter):
 
         for j in range(numiter):
             state_j = env.state
-            _,reward_j = env.step(policy(state_j))
+            _,reward_j,_,_ = env.step(policy(state_j))
             reward[j] = reward_j
         
         avg_reward[i] = np.mean(reward)
