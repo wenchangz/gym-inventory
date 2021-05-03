@@ -16,13 +16,13 @@ class Inventory(gym.Env):
         #self.starting_state = config['starting_state'] # set initial state
         
         self.h = 1 # the holding cost
-        self.p = 2 # the penalty cost
-        self.L = 100 # leading time
+        self.p = 99 # the penalty cost
+        self.L = 1 # leading time
         self.N = 100 # maximum inventory
         self.D = 6 # maximum demand
         
 
-        self.action_space = gym.spaces.Discrete(self.N+1) # definition of the action space
+        self.action_space = gym.spaces.Discrete(self.D+1) # definition of the action space
         self.observation_space = gym.spaces.MultiDiscrete([self.N+1]*(self.L+1)) # definition of the state space
         
         #self.state = np.asarray(self.starting_state) 
