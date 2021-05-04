@@ -21,7 +21,7 @@ class ContInventory(gym.Env):
         
         # self.action_space = gym.spaces.Discrete(20) # definition of the action space
 
-        self.action_space = gym.spaces.Box(low=0, high=100, shape=(1,),dtype=np.float32) # definition of the action space
+        self.action_space = gym.spaces.Box(low=0, high=np.inf, shape=(1,),dtype=np.float32) # definition of the action space
         
         self.observation_space = gym.spaces.Box(low=0, high=np.inf, shape=(self.L+1,1), dtype=np.float32) # definition of the state space
         

@@ -6,7 +6,7 @@ class ContInventoryConfig(gym.Env):
     metadata = {'render.modes': ['human']}
     
     #def __init__(self, config): 
-    def __init__(self, config): 
+    def __init__(self, **config): 
         
 #         self.h = config['h'] # the holding cost
 #         self.p = config['p'] # the penalty cost
