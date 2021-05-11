@@ -20,7 +20,7 @@ def ppo_evaluate(model, env, numiter):
     avg = np.mean(avg_reward)
     std_dev = np.std(avg_reward)
 
-    print("mean: ",avg)
-    print("standard deviation:", std_dev)
+#     print("mean: ",avg)
+#     print("standard deviation:", std_dev)
     
     return avg, std_dev
