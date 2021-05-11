@@ -2,7 +2,7 @@ import gym
 import numpy as np
 import sys
 
-class ContInventoryConfigFix(gym.Env):
+class ContInventoryDiscActionConfigFix(gym.Env):
     metadata = {'render.modes': ['human']}
     
     def __init__(self, **config): 
@@ -19,9 +19,9 @@ class ContInventoryConfigFix(gym.Env):
         self.L = config['L'] # leading time
         self.lamb = config['lambda'] # demand rate
         
-        self.action_space = gym.spaces.Box(low=0.0, high=20.0, shape=(1,),dtype=np.float32) # definition of the action space
+        # self.action_space = gym.spaces.Box(low=0.0, high=20.0, shape=(1,),dtype=np.float32) # definition of the action space
 
-        # self.action_space = gym.spaces.Discrete(20)
+        self.action_space = gym.spaces.Discrete(20)
 
         
         self.observation_space = gym.spaces.Box(low=0.0, high=np.inf, shape=(self.L+1,1), dtype=np.float32) # definition of the state space
@@ -59,7 +59,7 @@ class ContInventoryConfigFix(gym.Env):
         # update pipeline vector x
         for i in range(1,self.L):
             self.state[i] = self.state[i+1]
-        self.state[self.L] = action
+        self.state[self.L] = action/10
         
         # compute the reward
 #         loss = -min(0, self.state[0] + self.state[1] - demand)

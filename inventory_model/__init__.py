@@ -24,3 +24,8 @@ register(
     id='inventory_cont_config_fix_model-v0',
     entry_point='inventory_model.envs:ContInventoryConfigFix',
 )
+
+register(
+    id='inventory_cont_disc_action_config_fix_model-v0',
+    entry_point='inventory_model.envs:ContInventoryDiscActionConfigFix',
+)

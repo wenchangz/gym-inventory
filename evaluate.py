@@ -8,14 +8,15 @@ def evaluate(model, env, numiter):
     avg_reward = np.zeros(size)
     
     for i in range(size):
-        reward = np.zeros(numiter)
+        reward = []
         env.reset()
 
 
         for j in range(numiter):
             state_j = env.state
             _,reward_j,_,_ = env.step(policy(state_j))
-            reward[j] = reward_j
+            if j >= 1000:
+                reward.append(reward_j)
         
         avg_reward[i] = np.mean(reward)
     
