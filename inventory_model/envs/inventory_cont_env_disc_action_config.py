@@ -21,7 +21,7 @@ class ContInventoryDiscActionConfigFix(gym.Env):
         
         # self.action_space = gym.spaces.Box(low=0.0, high=20.0, shape=(1,),dtype=np.float32) # definition of the action space
 
-        self.action_space = gym.spaces.Discrete(20)
+        self.action_space = gym.spaces.Discrete(config['action'])
 
         
         self.observation_space = gym.spaces.Box(low=0.0, high=np.inf, shape=(self.L+1,1), dtype=np.float32) # definition of the state space
@@ -59,7 +59,7 @@ class ContInventoryDiscActionConfigFix(gym.Env):
         # update pipeline vector x
         for i in range(1,self.L):
             self.state[i] = self.state[i+1]
-        self.state[self.L] = action/10
+        self.state[self.L] = action/100
         
         # compute the reward
 #         loss = -min(0, self.state[0] + self.state[1] - demand)
