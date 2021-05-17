@@ -53,3 +53,7 @@ We also tried to formulate the problem in a continuous set up. In continuous set
 Our algorithm mainly requires stable_baselines3 and pytorch.
 
 #### Instructions
+
+To reproduce our results, please run through all the code in the Jupyter notebook ppo_inventory.ipynb. 
+
+The code will learn a policy using PPO under the specified model parameters. Choice of hyperparameters used in PPO is specified in the comments. After learning, it will evaluate this policy and produce its average cost, which is our optimization objective. The code will further plot a contour of the actions taken by this policy to give a more intuitive illustration of the results.
