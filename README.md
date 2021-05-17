@@ -50,3 +50,6 @@ We also tried to formulate the problem in a continuous set up. In continuous set
 
 
 #### Python Dependencies
+Our algorithm mainly requires stable_baselines3 and pytorch.
+
+#### Instructions
