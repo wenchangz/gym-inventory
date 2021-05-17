@@ -65,4 +65,4 @@ res_mean, res_std, mean_min, std_min = ppo_eval_interval(p,L,t_t, n_iter, n_step
 
 Choice of hyperparameters used in PPO is specified in the comments. For example, when $p=9$, we set the bias of the action net to be 0.4; when $p=39$, we set it to be 0.5. After learning the policy using 20 iterations, the code will automatically evaluate this policy and produce its average cost, which is our optimization objective. The code will further plot a contour of the actions taken by this policy to give a more intuitive illustration of the results, as demonstrated in the figure below.
 
-![alt text](/IMG_00001.png)
+![alt text](/color991.png)
