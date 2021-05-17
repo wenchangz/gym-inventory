@@ -50,3 +50,19 @@ We also tried to formulate the problem in a continuous set up. In continuous set
 
 
 #### Python Dependencies
+Our algorithm mainly requires stable_baselines3 and pytorch.
+
+#### Instructions
+
+To reproduce our results, please run through all the code in the Jupyter notebook ppo_inventory.ipynb. 
+
+The code will learn a policy using PPO under the specified model parameters, which are defined through the variables $p$ and $L$. This is achived by the wrapper function `ppo_eval_interval`
+
+```python
+res_mean, res_std, mean_min, std_min = ppo_eval_interval(p,L,t_t, n_iter, n_step, gae_lambda, learning_rate,bias)
+```
+
+
+Choice of hyperparameters used in PPO is specified in the comments. For example, when $p=9$, we set the bias of the action net to be 0.4; when $p=39$, we set it to be 0.5. After learning the policy using 20 iterations, the code will automatically evaluate this policy and produce its average cost, which is our optimization objective. The code will further plot a contour of the actions taken by this policy to give a more intuitive illustration of the results, as demonstrated in the figure below.
+
+![alt text](/IMG_00001.png)
